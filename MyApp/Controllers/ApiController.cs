@@ -30,7 +30,7 @@ namespace MyAPI.Controllers
             return Ok();
         }
 
-        [HttpPut("todo/{id}")]
+        [HttpPatch("todo/{id}")]
         public IActionResult PutTodo(int id)
         {
             var match = _db.Todos.SingleOrDefault(x => x.Id == id);

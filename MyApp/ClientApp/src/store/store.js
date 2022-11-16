@@ -78,7 +78,7 @@ export const store = createStore({
     },
     toggleTodo(commit, id, done) {
       return axios
-        .put(`api/todo/${id}`, {
+        .patch(`api/todo/${id}`, {
           done: done,
         })
         .then((response) => {
