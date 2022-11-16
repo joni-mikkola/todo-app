@@ -33,13 +33,13 @@ export default defineComponent({
     computed: mapState(['todos']),
     methods: {
         toggle(todo) {
-            var index = this.findIndex(todo.id)
+            const index = this.findIndex(todo.id)
             this.$store.dispatch('toggleTodo', todo.id).then((response) => {
                 this.todos[index] = response.data
             })
         },
         remove(todo) {
-            var index = this.findIndex(todo.id)
+            const index = this.findIndex(todo.id)
             this.$store.dispatch('deleteTodo', todo.id).then(() => {
                 this.todos.splice(index, 1)
             });
@@ -48,7 +48,7 @@ export default defineComponent({
             return this.todos.findIndex(x => x.id == id);
         },
         formatDate(str) {
-            var date = moment(str);
+            const date = moment(str);
             return date.utc().format('HH:mm DD.MM.YYYY');
         },
         formatDone(done) {

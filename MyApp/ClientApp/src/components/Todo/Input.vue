@@ -78,7 +78,7 @@ export default defineComponent({
             this.todoError = ""
         },
         isValid() {
-            var valid = true
+            let valid = true
             if (this.validationsEnabled) {
                 if (this.todo == null || this.todo.length < 5 || this.todo.length > 30) {
                     this.todoError = "Message length between 5 and 30 characters"
@@ -97,7 +97,7 @@ export default defineComponent({
         },
         async onSubmit() {
             if (this.isValid()) {
-                var that = this
+                const that = this
                 this.$store.dispatch('postTodo', { date: this.date, todo: this.todo }).then(() => {
                     this.$nextTick(() => {
                         that.date = null;

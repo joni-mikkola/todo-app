@@ -30,7 +30,7 @@ export const store = createStore({
         });
     },
     postTodo({ commit }, values) {
-      var date = moment(values.date).utcOffset(0, true).toISOString();
+      const date = moment(values.date).utcOffset(0, true).toISOString();
       commit("LOADING", true);
       return axios
         .post("api/todo", {
@@ -45,8 +45,8 @@ export const store = createStore({
         .catch((error) => {
           try {
             if (error.response.status == 400) {
-              var errors = [];
-              for (var e in error.response.data.errors) {
+              let errors = [];
+              for (let e in error.response.data.errors) {
                 errors.push(error.response.data.errors[e]);
               }
               toast.error(errors.join("\n"));
